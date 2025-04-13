@@ -440,40 +440,33 @@ export default function MeleteHomepage() {
       </motion.section>
 
       {/* BetterLYF Card */}
-      <motion.section
-        className="py-10 text-center"
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="p-6 rounded-xl flex flex-col items-center justify-center"
-            style={{ backgroundColor: '#015F4A', color: 'white', minHeight: '150px', border: '2px dashed #31A382', position: 'relative' }}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="text-xl font-bold mb-2">Unlock Your Wellbeing With BetterLYF</h3>
-            <p className="text-md mb-4">Get 10% Off on Your First Therapy Plan</p>
-            <div className="flex space-x-4">
-              <span className="px-4 py-2 bg-white text-[#015F4A] rounded-md font-semibold">BETTER10</span>
-              <motion.button
-                className="px-4 py-2 rounded-md font-semibold"
-                style={{ backgroundColor: '#31A382', color: 'white' }}
-                whileHover={{ scale: 1.1, backgroundColor: '#2F9B7A' }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => copyToClipboard('BETTER10')}
-              >
-                Click to Copy
-              </motion.button>
-            </div>
-            <div className="absolute top-0 left-4 w-4 h-4 bg-white rounded-full transform -translate-y-1/2"></div>
-            <div className="absolute top-0 right-4 w-4 h-4 bg-white rounded-full transform -translate-y-1/2"></div>
-          </motion.div>
-        </div>
-      </motion.section>
+      {/* BetterLYF Card */}
+<motion.section
+  className="py-10 text-center"
+  variants={sectionVariants}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <div className="container mx-auto px-4">
+    <motion.div
+      className="p-6 rounded-xl flex flex-col items-center justify-center"
+      style={{ backgroundColor: '#015F4A', color: 'white', minHeight: '150px', border: '2px dashed #31A382', position: 'relative' }}
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <h3 className="text-xl font-bold mb-2">“Crush Goals, Collect Rewards.”
+      Your habit Just became your hustle</h3>
+      <p className="text-md mb-4">Complete Your Daily Target And Achieve Your Coins</p>
+      <div className="flex space-x-4">
+        <span className="px-4 py-2 bg-white text-[#015F4A] rounded-md font-semibold">Refer Your Friends</span>
+      </div>
+      <div className="absolute top-0 left-4 w-4 h-4 bg-white rounded-full transform -translate-y-1/2"></div>
+      <div className="absolute top-0 right-4 w-4 h-4 bg-white rounded-full transform -translate-y-1/2"></div>
+    </motion.div>
+  </div>
+</motion.section>
 
       {/* Consultant Cards */}
       <motion.section

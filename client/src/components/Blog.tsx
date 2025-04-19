@@ -1,5 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import WorkImage from '../assets/Worklife-balance.jpg';
+import SocialImage from '../assets/Social-connection.jpg';
+import DigitalImage from '../assets/Digital-overloaded.jpg';
 
 // Sample blog post data (replace with API fetch in production)
 interface BlogPost {
@@ -16,7 +19,7 @@ const blogPosts: BlogPost[] = [
     title: '5 Ways to Boost Your Mental Wellness',
     excerpt:
       'Discover practical tips to improve your mental health, from mindfulness practices to daily habits that foster positivity.',
-    image: 'https://via.placeholder.com/400x250?text=Mental+Wellness',
+    image: `${WorkImage}`,
     slug: 'boost-mental-wellness',
   },
   {
@@ -24,7 +27,7 @@ const blogPosts: BlogPost[] = [
     title: 'The Power of Gratitude in Everyday Life',
     excerpt:
       'Learn how practicing gratitude can transform your perspective and enhance your emotional well-being.',
-    image: 'https://via.placeholder.com/400x250?text=Gratitude',
+    image: `${DigitalImage}`,
     slug: 'power-of-gratitude',
   },
   {
@@ -32,7 +35,7 @@ const blogPosts: BlogPost[] = [
     title: 'Overcoming Stress with Simple Techniques',
     excerpt:
       'Explore effective strategies to manage stress and create a calmer, more balanced life.',
-    image: 'https://via.placeholder.com/400x250?text=Stress+Relief',
+    image: `${SocialImage}`,
     slug: 'overcome-stress',
   },
 ];

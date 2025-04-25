@@ -1,34 +1,38 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ConsultantCard from './ConsultantCard';
-import ProfileImageOne from '../assets/consultant1.jpg';
-import ProfileImageTwo from '../assets/consultant2.jpg';
-import ProfileImageThree from '../assets/consultant3.jpg';
+import ProfileImageOne from '../assets/bincykv.jpg';
+import ProfileImageTwo from '../assets/sandrap.jpg';
+import ProfileImageThree from '../assets/alip.jpg';
 import { Consultant } from '../types/types';
 
 const consultants: Consultant[] = [
   {
-    name: 'Rajeev P',
-    qualification: 'MSc Clinical Psychology & Diploma in Art Therapy',
-    expertise: ['Workplace Stress', 'Family Therapy', 'Relationships', 'Anxiety Management'],
+    name: 'Bincy VK ',
+    qualification: 'MSc Psychology ',
+    expertise: ['workplace stress', 'family therapy', 'Psycho education', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness' ],
     languages: ['Malayalam', 'English', 'Hindi'],
     counseling: ['Individual'],
     image: ProfileImageThree,
   },
   {
-    name: 'Sapna Sharma',
-    qualification: 'MA in Psychology',
-    expertise: ['Emotional Regulation', 'Depression', 'Stress Management', 'Confidence Building'],
-    languages: ['English', 'Hindi'],
-    counseling: ['Individual'],
+    name: 'Sandra P',
+    qualification: 'Msc.Psychology',
+    expertise: ['Anxiety' , 'Depression' ,'Stress management','psychoeducation'],
+    languages: ['Malayalam'],
+    counseling: ['Group and Individual'],
     image: ProfileImageTwo,
   },
   {
-    name: 'Varsha Patel',
-    qualification: 'MPhil Clinical Psychology & MDMP',
-    expertise: ['ADHD', 'Addiction Recovery', 'Depression', 'Grief Counseling'],
-    languages: ['English', 'Tamil', 'Hindi'],
-    counseling: ['Individual', 'Couple'],
+    name: 'ALI P',
+    qualification: 'Msc psychology',
+    expertise: ['Stress & Anxiety Management',
+        "Relationship Issues",
+        "Family Counselling",
+        "Exam-Related Issues"
+      ],
+    languages: ['Malayalam', 'Tamil'],
+    counseling: ['Individual'],
     image: ProfileImageOne,
   },
 ];

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import ConsultantCard from './ConsultantCard';
 import ProfileImageOne from '../assets/alip.jpg';
 import ProfileImageTwo from '../assets/sandrap.jpg';
-import ProfileImageThree from '../assets/bincyKV.jpg';
+import ProfileImageThree from '../assets/bincy.jpg';
 import { Consultant } from '../types/types';
 
 const consultants: Consultant[] = [

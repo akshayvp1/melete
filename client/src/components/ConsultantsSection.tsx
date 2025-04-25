@@ -8,7 +8,7 @@ import { Consultant } from '../types/types';
 
 const consultants: Consultant[] = [
   {
-    name: 'Ali P',
+    name: 'ALI P',
     qualification: 'Msc psychology',
     expertise: ['Stress & Anxiety Management',
         "Relationship Issues",
@@ -20,7 +20,7 @@ const consultants: Consultant[] = [
     image: ProfileImageOne,
   },
   {
-    name: 'Bincy KV ',
+    name: 'BiNCY KV ',
     qualification: 'MSc Psychology ',
     expertise: ['workplace stress', 'family therapy', 'Psycho education', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness' ],
     languages: ['Malayalam', 'English', 'Hindi'],
@@ -28,7 +28,7 @@ const consultants: Consultant[] = [
     image: ProfileImageThree,
   },
   {
-    name: 'Sandra P',
+    name: 'SANDRA P',
     qualification: 'Msc.Psychology',
     expertise: ['Anxiety' , 'Depression' ,'Stress management','psychoeducation'],
     languages: ['Malayalam'],

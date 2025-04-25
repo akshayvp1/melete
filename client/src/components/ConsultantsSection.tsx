@@ -3,12 +3,24 @@ import { motion } from 'framer-motion';
 import ConsultantCard from './ConsultantCard';
 import ProfileImageOne from '../assets/alip.jpg';
 import ProfileImageTwo from '../assets/sandrap.jpg';
-import ProfileImageThree from '../assets/bincykv.jpg';
+import ProfileImageThree from '../assets/bincyKV.jpg';
 import { Consultant } from '../types/types';
 
 const consultants: Consultant[] = [
   {
-    name: 'Bincy VK ',
+    name: 'Ali P',
+    qualification: 'Msc psychology',
+    expertise: ['Stress & Anxiety Management',
+        "Relationship Issues",
+        "Family Counselling",
+        "Exam-Related Issues"
+      ],
+    languages: ['Malayalam', 'Tamil'],
+    counseling: ['Individual'],
+    image: ProfileImageOne,
+  },
+  {
+    name: 'Bincy KV ',
     qualification: 'MSc Psychology ',
     expertise: ['workplace stress', 'family therapy', 'Psycho education', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness' ],
     languages: ['Malayalam', 'English', 'Hindi'],
@@ -23,18 +35,7 @@ const consultants: Consultant[] = [
     counseling: ['Group and Individual'],
     image: ProfileImageTwo,
   },
-  {
-    name: 'Ali P',
-    qualification: 'Msc psychology',
-    expertise: ['Stress & Anxiety Management',
-        "Relationship Issues",
-        "Family Counselling",
-        "Exam-Related Issues"
-      ],
-    languages: ['Malayalam', 'Tamil'],
-    counseling: ['Individual'],
-    image: ProfileImageOne,
-  },
+  
 ];
 
 const sectionVariants = {

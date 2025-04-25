@@ -20,7 +20,7 @@ const consultants: Consultant[] = [
     image: ProfileImageOne,
   },
   {
-    name: 'BiNCY KV ',
+    name: 'BINCY KV ',
     qualification: 'MSc Psychology ',
     expertise: ['workplace stress', 'family therapy', 'Psycho education', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness' ],
     languages: ['Malayalam', 'English', 'Hindi'],

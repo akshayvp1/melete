@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import ConsultantCard from './ConsultantCard';
-import ProfileImageOne from '../assets/bincykv.jpg';
+import ProfileImageOne from '../assets/alip.jpg';
 import ProfileImageTwo from '../assets/sandrap.jpg';
-import ProfileImageThree from '../assets/alip.jpg';
+import ProfileImageThree from '../assets/bincykv.jpg';
 import { Consultant } from '../types/types';
 
 const consultants: Consultant[] = [
@@ -24,7 +24,7 @@ const consultants: Consultant[] = [
     image: ProfileImageTwo,
   },
   {
-    name: 'ALI P',
+    name: 'Ali P',
     qualification: 'Msc psychology',
     expertise: ['Stress & Anxiety Management',
         "Relationship Issues",

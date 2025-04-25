@@ -69,6 +69,7 @@
 
 
 
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Consultant } from '../types/types';
@@ -88,6 +89,24 @@ const cardVariants = {
   },
 };
 
+const badgeVariants = {
+  initial: { y: 0 },
+  animate: {
+    y: [-2, 2, -2],
+    transition: {
+      duration: 1.5,
+      ease: 'easeInOut',
+      repeat: Infinity,
+      repeatType: 'loop' as const,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    boxShadow: '0 6px 16px rgba(49, 163, 130, 0.5)',
+    transition: { duration: 0.2 },
+  },
+};
+
 interface ConsultantCardProps {
   consultant: Consultant;
   index: number;
@@ -95,17 +114,17 @@ interface ConsultantCardProps {
 
 const ConsultantCard: React.FC<ConsultantCardProps> = ({ consultant, index }) => {
   const phoneNumber = '+918943175522'; // Include country code here
-  
+
   const handleBookSession = () => {
-    const message = `Hello, I'm interested in booking a session with ${consultant.name}.\n\nDetails:\n- Qualification: ${consultant.qualification}\n- Expertise: ${consultant.expertise.join(', ')}\n- Languages: ${consultant.languages.join(', ')}\n- Counseling: ${consultant.counseling.join(', ')}`;
+    const message = `Hello, I'm interested in booking a session with ${consultant.name}.\n\nDetails:\n- Qualification: ${consultant.qualification}\n- Expertise: ${consultant.expertise.join(', ')}\n- Languages: ${consultant.languages.join(', ')}\n- Counseling: ${consultant.counseling.join(', ')}${consultant.experience ? `\n- Experience: ${consultant.experience}` : ''}`;
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`; // Use phoneNumber directly
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
 
   return (
     <motion.div
-      className="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-[#F9F9F9] border border-[#F0F0F0]"
+      className="p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 bg-[#F9F9F9] border border-[#F0F0F0] relative"
       variants={cardVariants}
       initial="hidden"
       animate="visible"
@@ -141,6 +160,27 @@ const ConsultantCard: React.FC<ConsultantCardProps> = ({ consultant, index }) =>
       >
         Book Session
       </motion.button>
+      {consultant.experience && (
+        <motion.div
+          className="absolute top-4 right-4 flex items-center bg-gradient-to-r from-[#31A382] to-[#2F9B7A] text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg"
+          style={{ boxShadow: '0 0 10px rgba(49, 163, 130, 0.4)' }}
+          variants={badgeVariants}
+          initial="initial"
+          animate="animate"
+          whileHover="hover"
+        >
+          <svg
+            className="w-4 h-4 mr-1"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            <path d="M12 8v6m-3-3h6" />
+          </svg>
+          {consultant.experience}
+        </motion.div>
+      )}
     </motion.div>
   );
 };

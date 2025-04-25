@@ -7,6 +7,7 @@ export interface Consultant {
   languages: string[];
   counseling: string[];
   image: string;
+  experience?: string; // Optional experience field
 }
 
 export interface TherapyImprovement {

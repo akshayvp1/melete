@@ -9,6 +9,15 @@ export interface Consultant {
   image: string;
   experience?: string; // Optional experience field
 }
+interface Certificate {
+  recipientName: string;
+  certificateTitle: string;
+  issueDate: string;
+  issuer: string;
+  certificateImage?: string;
+  certificateUrl?: string;
+}
+
 
 export interface TherapyImprovement {
   title: string;

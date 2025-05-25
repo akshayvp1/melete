@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
-import MeleteLogo from '../assets/Melete-logo.svg';
+import MeleteLogo from '../assets/logoWhite.png';
 import MeleteLogo1 from '../assets/Melete-logo-2.svg';
 import { NavItem } from '../types/types';
 
 const navItems: NavItem[] = [
-  { name: 'Who Joined With Melete', items: ['Child', 'Parent', 'Pregnant', 'Adult', 'Old Age'] },
-  { name: 'Relaxation For', items: ['Anger Issues', 'Depression', 'Mood Swings', 'Stress', 'Anxiety'] },
-  { name: 'Habit Vault', items: ['Todo-List', 'Goal Setting', 'Habit Formation', 'Wellness Activities'] },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Login', href: '/login' },
+  // { name: 'Who Joined With Melete', items: ['Child', 'Parent', 'Pregnant', 'Adult', 'Old Age'] },
+  // { name: 'Relaxation For', items: ['Anger Issues', 'Depression', 'Mood Swings', 'Stress', 'Anxiety'] },
+   { name: 'Home', href:'/'},
+    { name: 'Service', href:'/service'},
+     { name: 'OurExperts', href:'/experts'},
+  { name: 'About', href:'/about'},
   { name: 'Contact', href: '/contact' },
 ];
 

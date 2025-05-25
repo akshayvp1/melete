@@ -164,7 +164,12 @@ import profileImageFive from '../assets/minnak.jpg'
 import ProfileImageSix from '../assets/shifanasiddiqnv.jpg'
 import ProfileImageSeven from '../assets/swathykrishna.jpg'
 import ProfileImageNine from '../assets/suhairavp-1.png'
-
+import profileTen from '../assets/Dilsha.jpg'
+import profileEleven from '../assets/SHANA.jpg'
+import profileT from '../assets/Raifa .jpg'
+import profileTh from '../assets/Sahla .jpg'
+import profileFo from '../assets/Anusha .jpg'
+import profileFif from '../assets/Ritha.jpg'
 import { Consultant } from '../types/types';
 
 const consultants: Consultant[] = [
@@ -265,14 +270,65 @@ const consultants: Consultant[] = [
     counseling: ['Individual'],
     image: ProfileImageThree,
   },
-  {
-    name: 'SANDRA P',
-    qualification: 'Msc Sports Psychology',
-    expertise: ['Adolescents & Child Counselling', 'Family Therapy'],
-    languages: ['Malayalam', 'English'],
-    counseling: ['Group and Individual'],
-    image: ProfileImageTwo,
-  },
+    {
+      name: 'SANDRA P',
+      qualification: 'Msc.Psychology',
+      expertise: ['Anxiety' , 'Depression' ,'Stress management','psychoeducation'],
+      languages: ['Malayalam'],
+      counseling: ['Group and Individual'],
+      image: ProfileImageTwo,
+    },
+     {
+      name: 'FATHIMA RITHA',
+      qualification: 'Msc.Psychology',
+      expertise: [' workplace stress',' family therapy', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness '],
+      languages: ['Malayalam','English '],
+      counseling: ['Individual'],
+      image: profileFif,
+    },
+    {
+      name: 'RAIFA CP',
+      qualification: 'Msc.Psychology',
+      expertise: ['Online counseling ', 'Screen addiction' ],
+      languages: ['Malayalam','English'],
+      counseling: ['Individual'],
+      image: profileT,
+    },
+     {
+      name: 'ANUSHA DIVAKARAN',
+      qualification: 'Msc.Psychology,,Certified CBT & PFA Practitioner',
+      expertise: ['Deaddiction Counselling', 'Stress and Anxiety management', 'Counselling for Children' ],
+      languages: ['Malayalam'],
+      counseling: ['Group and Individual'],
+      image: profileFo,
+      Experience: '2+ years'
+    },
+    {
+      name: 'SAHALA SHIRIN',
+      qualification: 'Msc.Psychology',
+      expertise: ['Adolescent issues', 'Behavioural problems','career guidance' ],
+      languages: ['Malayalam','English'],
+      counseling: ['Individual'],
+      image:profileTh,
+    },
+      {
+      name: 'MURSHIDHA SHANA.C',
+      qualification: 'Msc.Psychology',
+      expertise: ['workplace stress', 'family therapy', 'Relationships', 'Anxiety management', 'Behavioural issues',' Academic backwardness' ],
+      languages: ['Malayalam','English'],
+      counseling: ['Individual'],
+      image: profileEleven,
+      experience: '1+ year',
+    },
+     {
+      name: 'DILSHA K ',
+      qualification: 'MSc Counselling Psychology ',
+      expertise: ['Anxiety Management ', 'Relationship issues and management', 'Family therapy ', 'Adolescent cases', 'General Psychiatry ',' Behavioral Therapy' ],
+      languages: ['Malayalam','English','Tamil'],
+      counseling: ['Individual therapy sessions '],
+      image: profileTen,
+      experience: '1+ year',
+    },
   {
     name: 'SUHAIRA VP',
     qualification: 'Msc.Psychology',

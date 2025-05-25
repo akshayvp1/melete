@@ -60,7 +60,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaInstagram, FaLinkedin } from 'react-icons/fa';
-import MeleteLogo from '../assets/Melete-logo.svg';
+import MeleteLogo from '../assets/logoWhite.png';
 import MeleteLogo1 from '../assets/Melete-logo-2.svg';
 
 const footerVariants = {

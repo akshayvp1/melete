@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import HeroSection from '../components/HeroSection';
+import HeroSection from '../components/meleteProvide';
 // import MentalFitnessSection from '../components/MentalFitnessSection';
 import TherapyImprovementsSection from '../components/TherapyImprovementsSection';
 import BetterLYFCard from '../components/BetterLYFCard';

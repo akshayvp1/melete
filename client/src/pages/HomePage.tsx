@@ -9,6 +9,7 @@ import ConsultantsSection from '../components/counsellorsList';
 // import ContactSection from '../components/ContactSection';
 import WhatWeOffer from '../components/offer';
 import Footer from '../components/Footer';
+import SubscriptionPlans from '../components/planComponents';
 
 const Home: React.FC = () => {
   const phoneNumber = '+918943175522';
@@ -31,6 +32,7 @@ const Home: React.FC = () => {
         <BetterLYFCard />
         <ConsultantsSection />
         <WhatWeOffer />
+        <SubscriptionPlans/>
         {/* <ContactSection /> */}
       </main>
       <Footer />

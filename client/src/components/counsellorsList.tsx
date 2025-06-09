@@ -1,439 +1,282 @@
-// // import React from 'react';
-// // import { motion } from 'framer-motion';
-// // import ConsultantCard from './ConsultantCard';
-// // import ProfileImageOne from '../assets/alip.jpg';
-// // import ProfileImageTwo from '../assets/sandrap.jpg';
-// // import ProfileImageThree from '../assets/bincy.jpg';
-// // import { Consultant } from '../types/types';
-
-// // const consultants: Consultant[] = [
-// //   {
-// //     name: 'ALI P',
-// //     qualification: 'Msc psychology',
-// //     expertise: ['Stress & Anxiety Management',
-// //         "Relationship Issues",
-// //         "Family Counselling",
-// //         "Exam-Related Issues"
-// //       ],
-// //     languages: ['Malayalam', 'Tamil'],
-// //     counseling: ['Individual'],
-// //     image: ProfileImageOne,
-// //   },
-// //   {
-// //     name: 'BINCY VK ',
-// //     qualification: 'MSc Psychology ',
-// //     expertise: ['workplace stress', 'family therapy', 'Psycho education', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness' ],
-// //     languages: ['Malayalam', 'English', 'Hindi'],
-// //     counseling: ['Individual'],
-// //     image: ProfileImageThree,
-// //   },
-// //   {
-// //     name: 'SANDRA P',
-// //     qualification: 'Msc Sports Psychology',
-// //     expertise: [ 'Adolescents &  Child Counselling' ,' Family Therapy',
-// //     ],
-// //     languages: ['Malayalam','English'],
-// //     counseling: ['Group and Individual'],
-// //     image: ProfileImageTwo,
-// //   },
-// //   {
-// //     name: 'SUHAIRA VP',
-// //     qualification: 'Msc.Psychology',
-// //     expertise: ['Adolescents &  Child Counselling ', 'Family Therapy'],
-// //     languages: ['Malayalam','English'],
-// //     counseling: ['Group and Individual'],
-// //     image: ProfileImageTwo,
-// //   },
-// //   {
-// //     name: 'SHIFANA SIDDIQ NV',
-// //     qualification: 'Msc.Psychology',
-// //     expertise: ['General Psychiatry',
-
-// //       'Child & Adolescent Cases',
-      
-// //       'Developmental Disorders',
-      
-// //       'Addiction & Substance Use Disorders',
-      
-// //       'Family Therapy',
-      
-// //       'Anxiety Management',
-      
-// //       'Behavioural Issues',
-      
-// //       'Sleep-Related Concerns',
-// //       ],
-// //     languages: ['Malayalam','English'],
-// //     counseling: ['Individual Therapy Sessions'],
-// //     image: ProfileImageTwo,
-// //   },
-// //   {
-// //     name: 'ANUPAMA SURENDRAN K',
-// //     qualification: 'Consultant Psychologist & Psychotherapist MSc Psychology',
-// //     expertise: ['Child & Adolescent Issues',
-
-// //       'Behavioral Therapy',
-      
-// //      ' Family & Relationship Conflicts',
-      
-// //       'Stress & Anxiety Management',
-      
-// //      ' Identity Confusion & Emotional Difficulties',
-      
-// //       'Academic and Developmental Challenges',
-// //       ],
-// //     languages: ['Malayalam','English','Hindi'],
-// //     counseling: ['Individual'],
-// //     image: ProfileImageTwo,
-// //   },
-// //   {
-// //     name: 'MINNA K',
-// //     qualification: 'M.Sc. in Counseling Psychology',
-// //     expertise: ['General Psychiatry',
-
-// //       'Child & Adolescent Cases',
-      
-// //      ' Developmental Disorders',
-      
-// //       'Addiction & Substance Use Disorders',
-      
-// //       'Family Therapy',
-      
-// //       'Anxiety Management',
-      
-// //       'Behavioural Issues',
-      
-// //      ' Sleep-Related Concerns',
-// //       ],
-// //     languages: ['Malayalam','English'],
-// //     counseling: ['Individual Therapy Sessions'],
-// //     image: ProfileImageTwo,
-// //   },
-// //   {
-// //     name: 'SWATHY KRISHNA T',
-// //     qualification: 'Msc.Psychology',
-// //     expertise: ['workplace stress', 'family therapy', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness'],
-// //     languages: ['Malayalam','English'],
-// //     counseling: ['Individual'],
-// //     image: ProfileImageTwo,
-// //   },
-  
-// // ];
-
-// // const sectionVariants = {
-// //   hidden: { opacity: 0, y: 60 },
-// //   visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
-// // };
 
 
-// // const ConsultantsSection: React.FC = () => {
-// //   return (
-// //     <motion.section
-// //       className="py-24 text-center"
-// //       style={{ backgroundColor: 'white' }}
-// //       variants={sectionVariants}
-// //       initial="hidden"
-// //       whileInView="visible"
-// //       viewport={{ once: true }}
-// //     >
-// //       <div className="container mx-auto px-4">
-// //         <h2 className="text-3xl md:text-4xl font-bold mb-12" style={{ color: '#015F4A' }}>
-// //           Meet Our Certified Professionals
-// //         </h2>
-// //         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-// //           {consultants.map((consultant, index) => (
-// //             <ConsultantCard key={consultant.name} consultant={consultant} index={index} />
-// //           ))}
-// //         </div>
-// //       </div>
-// //     </motion.section>
-// //   );
-// // };
-
-// // export default ConsultantsSection;
-
-
-// import React, { useState } from 'react';
+// // src/components/CounsellorList.tsx
+// import React, { useEffect, useState } from 'react';
 // import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
 // import ConsultantCard from './ConsultantCard';
-// import ProfileImageOne from '../assets/alip.jpg';
-// import ProfileImageTwo from '../assets/sandra.jpg';
-// import ProfileImageThree from '../assets/bincy.jpg';
-// import profileImageFour from '../assets/anupama.jpg'
-// import profileImageFive from '../assets/minnak.jpg'
-// import ProfileImageSix from '../assets/shifanasiddiqnv.jpg'
-// import ProfileImageSeven from '../assets/swathykrishna.jpg'
-// import ProfileImageNine from '../assets/suhairavp-1.png'
-// import profileTen from '../assets/Dilsha.jpg'
-// import profileEleven from '../assets/SHANA.jpg'
-// import profileT from '../assets/Raifa .jpg'
-// import profileTh from '../assets/Sahla .jpg'
-// import profileFo from '../assets/Anusha .jpg'
-// import profileFif from '../assets/Ritha.jpg'
-// import { Consultant } from '../types/types';
+// import { Consultant } from '../types/types'; // Import the unified Consultant interface
+// import AuthService from '../services/AuthService';
 
-// const consultants: Consultant[] = [
-//   {
-//     name: 'ANUPAMA SURENDRAN K',
-//     qualification: 'Consultant Psychologist & Psychotherapist MSc Psychology',
-//     expertise: [
-//       'Child & Adolescent Issues',
-//       'Behavioral Therapy',
-//       'Family & Relationship Conflicts',
-//       'Stress & Anxiety Management',
-//       'Identity Confusion & Emotional Difficulties',
-//       'Academic and Developmental Challenges',
-//     ],
-//     languages: ['Malayalam', 'English', 'Hindi'],
-//     counseling: ['Individual'],
-//     image: profileImageFour,
-//     experience: '2 years',
-//   },
-//   {
-//     name: 'SWATHY KRISHNA T',
-//     qualification: 'Msc.Psychology',
-//     expertise: [
-//       'workplace stress',
-//       'family therapy',
-//       'Relationships',
-//       'Anxiety management',
-//       'Behavioural issues',
-//       'Academic backwardness',
-//     ],
-//     languages: ['Malayalam', 'English'],
-//     counseling: ['Individual'],
-//     image: ProfileImageSeven,
-//     experience: '2 years',
-//   },
-//   {
-//     name: 'SHIFANA SIDDIQ NV',
-//     qualification: 'Msc.Psychology',
-//     expertise: [
-//       'General Psychiatry',
-//       'Child & Adolescent Cases',
-//       'Developmental Disorders',
-//       'Addiction & Substance Use Disorders',
-//       'Family Therapy',
-//       'Anxiety Management',
-//       'Behavioural Issues',
-//       'Sleep-Related Concerns',
-//     ],
-//     languages: ['Malayalam', 'English'],
-//     counseling: ['Individual Therapy Sessions'],
-//     image: ProfileImageSix,
-//     experience: '1+ year',
-//   },
-//   {
-//     name: 'MINNA K',
-//     qualification: 'M.Sc. in Counseling Psychology',
-//     expertise: [
-//       'General Psychiatry',
-//       'Child & Adolescent Cases',
-//       'Developmental Disorders',
-//       'Addiction & Substance Use Disorders',
-//       'Family Therapy',
-//       'Anxiety Management',
-//       'Behavioural Issues',
-//       'Sleep-Related Concerns',
-//     ],
-//     languages: ['Malayalam', 'English'],
-//     counseling: ['Individual Therapy Sessions'],
-//     image: profileImageFive,
-//     experience: '1+ year',
-//   },
-//   {
-//     name: 'ALI P',
-//     qualification: 'Msc psychology',
-//     expertise: [
-//       'Stress & Anxiety Management',
-//       'Relationship Issues',
-//       'Family Counselling',
-//       'Exam-Related Issues',
-//     ],
-//     languages: ['Malayalam', 'Tamil'],
-//     counseling: ['Individual'],
-//     image: ProfileImageOne,
-//   },
-//   {
-//     name: 'BINCY VK',
-//     qualification: 'MSc Psychology',
-//     expertise: [
-//       'workplace stress',
-//       'family therapy',
-//       'Psycho education',
-//       'Relationships',
-//       'Anxiety management',
-//       'Behavioural issues',
-//       'Academic backwardness',
-//     ],
-//     languages: ['Malayalam', 'English', 'Hindi'],
-//     counseling: ['Individual'],
-//     image: ProfileImageThree,
-//   },
-//     {
-//       name: 'SANDRA P',
-//       qualification: 'Msc.Psychology',
-//       expertise: ['Anxiety' , 'Depression' ,'Stress management','psychoeducation'],
-//       languages: ['Malayalam'],
-//       counseling: ['Group and Individual'],
-//       image: ProfileImageTwo,
+// const containerVariants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
 //     },
-//      {
-//       name: 'FATHIMA RITHA',
-//       qualification: 'Msc.Psychology',
-//       expertise: [' workplace stress',' family therapy', 'Relationships', 'Anxiety management', 'Behavioural issues', 'Academic backwardness '],
-//       languages: ['Malayalam','English '],
-//       counseling: ['Individual'],
-//       image: profileFif,
-//     },
-//     {
-//       name: 'RAIFA CP',
-//       qualification: 'Msc.Psychology',
-//       expertise: ['Online counseling ', 'Screen addiction' ],
-//       languages: ['Malayalam','English'],
-//       counseling: ['Individual'],
-//       image: profileT,
-//     },
-//      {
-//       name: 'ANUSHA DIVAKARAN',
-//       qualification: 'Msc.Psychology,,Certified CBT & PFA Practitioner',
-//       expertise: ['Deaddiction Counselling', 'Stress and Anxiety management', 'Counselling for Children' ],
-//       languages: ['Malayalam'],
-//       counseling: ['Group and Individual'],
-//       image: profileFo,
-//       Experience: '2+ years'
-//     },
-//     {
-//       name: 'SAHALA SHIRIN',
-//       qualification: 'Msc.Psychology',
-//       expertise: ['Adolescent issues', 'Behavioural problems','career guidance' ],
-//       languages: ['Malayalam','English'],
-//       counseling: ['Individual'],
-//       image:profileTh,
-//     },
-//       {
-//       name: 'MURSHIDHA SHANA.C',
-//       qualification: 'Msc.Psychology',
-//       expertise: ['workplace stress', 'family therapy', 'Relationships', 'Anxiety management', 'Behavioural issues',' Academic backwardness' ],
-//       languages: ['Malayalam','English'],
-//       counseling: ['Individual'],
-//       image: profileEleven,
-//       experience: '1+ year',
-//     },
-//      {
-//       name: 'DILSHA K ',
-//       qualification: 'MSc Counselling Psychology ',
-//       expertise: ['Anxiety Management ', 'Relationship issues and management', 'Family therapy ', 'Adolescent cases', 'General Psychiatry ',' Behavioral Therapy' ],
-//       languages: ['Malayalam','English','Tamil'],
-//       counseling: ['Individual therapy sessions '],
-//       image: profileTen,
-//       experience: '1+ year',
-//     },
-//   {
-//     name: 'SUHAIRA VP',
-//     qualification: 'Msc.Psychology',
-//     expertise: ['Adolescents & Child Counselling', 'Family Therapy'],
-//     languages: ['Malayalam', 'English'],
-//     counseling: ['Group and Individual'],
-//     image: ProfileImageNine,
 //   },
-// ].sort((a, b) => {
-//   // Prioritize consultants with experience
-//   if (a.experience && !b.experience) {
-//     // Sort by experience: 2 years before 1+ year
-//     if (a.experience === '2 years' && b.experience !== '2 years') return -1;
-//     if (a.experience !== '2 years' && b.experience === '2 years') return 1;
-//     return 0;
-//   }
-//   if (!a.experience && b.experience) {
-//     return 1;
-//   }
-//   // For non-experienced, ensure Ali P comes first among them
-//   if (!a.experience && !b.experience) {
-//     if (a.name === 'ALI P') return -1;
-//     if (b.name === 'ALI P') return 1;
-//     // Sort by qualification
-//     if (a.qualification < b.qualification) return -1;
-//     if (a.qualification > b.qualification) return 1;
-//     // If qualifications are equal, sort by expertise count (descending)
-//     return b.expertise.length - a.expertise.length;
-//   }
-//   return 0;
-// });
-
-// const sectionVariants = {
-//   hidden: { opacity: 0, y: 60 },
-//   visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: 'easeOut' } },
 // };
 
-// const ConsultantsSection: React.FC = () => {
-//   const [visibleCount, setVisibleCount] = useState(3); // Initially show 3 consultants
+// const buttonVariants = {
+//   hover: {
+//     scale: 1.05,
+//     boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+//     transition: { duration: 0.3 },
+//   },
+//   tap: { scale: 0.95 },
+// };
 
-//   const handleShowMore = () => {
-//     setVisibleCount(consultants.length); // Show all consultants
-//   };
+// const CounsellorList: React.FC = () => {
+//   const [consultants, setConsultants] = useState<Consultant[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchCounsellors = async () => {
+//       try {
+//         setLoading(true);
+//         console.log('Fetching counsellors...');
+//         const counsellors = await AuthService.getCounsellors();
+//         console.log('API Response:', counsellors);
+//         setConsultants(counsellors); // Set directly as it matches Consultant type
+//         console.log('Final Consultants State:', counsellors);
+//       } catch (err: any) {
+//         console.error('Error fetching counsellors:', err);
+//         setError(err.message || 'Failed to fetch counsellors');
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchCounsellors();
+//   }, []);
+
+//   if (loading) {
+//     return <div className="text-center py-10">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="text-center py-10 text-red-500">{error}</div>;
+//   }
+
+//   if (consultants.length === 0) {
+//     return <div className="text-center py-10">No counsellors available.</div>;
+//   }
 
 //   return (
-//     <motion.section
-//       className="py-24 text-center"
-//       style={{ backgroundColor: 'white' }}
-//       variants={sectionVariants}
-//       initial="hidden"
-//       whileInView="visible"
-//       viewport={{ once: true }}
-//     >
-//       <div className="container mx-auto px-4">
-//         <h2 className="text-3xl md:text-15xl font-bold mb-12" style={{ color: '#015F4A' }}>
-//           Meet Our Certified Professionals
-//         </h2>
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-//           {consultants.slice(0, visibleCount).map((consultant, index) => (
-//             <ConsultantCard key={consultant.name} consultant={consultant} index={index} />
+//     <div className="container mx-auto py-10 px-4">
+//       <h2 className="text-3xl font-bold text-center mb-8" style={{ color: '#015F4A' }}>
+//         Our Expert Counsellors
+//       </h2>
+//       <motion.div
+//         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+//         variants={containerVariants}
+//         initial="hidden"
+//         animate="visible"
+//       >
+//         {consultants
+//           .filter((c) => !c.isBlocked)
+//           .slice(0, 3)
+//           .map((consultant, index) => (
+//             <ConsultantCard key={consultant.id} consultant={consultant} index={index} /> // Use `id` instead of `_id`
 //           ))}
-//         </div>
-//         {visibleCount < consultants.length && (
+//       </motion.div>
+//       {consultants.length > 3 && (
+//         <div className="text-center mt-8">
 //           <motion.button
-//             className="mt-12 px-8 py-3 rounded-full font-semibold bg-[#31A382] text-white hover:bg-[#2F9B7A] transition-colors duration-300"
-//             whileHover={{ scale: 1.1, boxShadow: '0 5px 15px rgba(0,0,0,0.2)' }}
-//             whileTap={{ scale: 0.95 }}
-//             onClick={handleShowMore}
+//             className="px-8 py-3 rounded-full font-semibold bg-[#31A382] text-white hover:bg-[#2F9B7A] transition-colors duration-300"
+//             variants={buttonVariants}
+//             whileHover="hover"
+//             whileTap="tap"
+//             onClick={() => navigate('/experts')}
 //           >
 //             Show More
 //           </motion.button>
-//         )}
-//       </div>
-//     </motion.section>
+//         </div>
+//       )}
+//     </div>
 //   );
 // };
 
-// export default ConsultantsSection;
+// export default CounsellorList;
 
-// src/components/CounsellorList.tsx
+
+
+
+
+
+// import React, { useEffect, useState } from 'react';
+// import { motion, Variants } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
+// import ConsultantCard from './ConsultantCard';
+// import { Consultant } from '../types/types';
+// import AuthService from '../services/AuthService';
+
+// const containerVariants: Variants = {
+//   hidden: { opacity: 0 },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       staggerChildren: 0.1,
+//     },
+//   },
+// };
+
+// const cardVariants: Variants = {
+//   hidden: { opacity: 0, scale: 0.95 },
+//   visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+// };
+
+// const buttonVariants: Variants = {
+//   hover: {
+//     scale: 1.05,
+//     boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+//     transition: { duration: 0.3 },
+//   },
+//   tap: { scale: 0.95 },
+// };
+
+// const CounsellorList: React.FC = () => {
+//   const [consultants, setConsultants] = useState<Consultant[]>([]);
+//   const [loading, setLoading] = useState<boolean>(true);
+//   const [error, setError] = useState<string | null>(null);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const fetchCounsellors = async () => {
+//       try {
+//         setLoading(true);
+//         const counsellors = await AuthService.getCounsellors();
+//         setConsultants(counsellors);
+//       } catch (err: unknown) {
+//         const errorMessage = err instanceof Error ? err.message : 'Failed to fetch counsellors';
+//         setError(errorMessage);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
+
+//     fetchCounsellors();
+//   }, []);
+
+//   if (loading) {
+//     return <div className="text-center py-10 text-gray-600">Loading...</div>;
+//   }
+
+//   if (error) {
+//     return <div className="text-center py-10 text-red-500">{error}</div>;
+//   }
+
+//   if (consultants.length === 0) {
+//     return <div className="text-center py-10 text-gray-600">No counsellors available.</div>;
+//   }
+
+//   const filteredConsultants = consultants.filter((c) => !c.isBlocked).slice(0, 3);
+
+//   return (
+//     <section className="container mx-auto py-10 px-4" aria-labelledby="counsellors-heading">
+//       <h2
+//         id="counsellors-heading"
+//         className="text-3xl font-bold text-center mb-8"
+//         style={{ color: '#015F4A' }}
+//       >
+//         Accessibility
+//       </h2>
+//       <motion.div
+//         className="flex flex-row overflow-x-auto md:overflow-x-visible gap-4 pb-4 snap-x snap-mandatory"
+//         variants={containerVariants}
+//         initial="hidden"
+//         animate="visible"
+//       >
+//         {filteredConsultants.map((consultant, index) => (
+//           <motion.div
+//             key={consultant.id}
+//             className="flex-shrink-0 w-80 md:w-1/3 snap-center"
+//             variants={cardVariants}
+//             transition={{ delay: index * 0.2 }}
+//           >
+//             <ConsultantCard consultant={consultant} index={index} />
+//           </motion.div>
+//         ))}
+//       </motion.div>
+//       {consultants.length > 3 && (
+//         <div className="text-center mt-8">
+//           <motion.button
+//             className="px-8 py-2 rounded-full font-semibold bg-[#015273] text-white hover:bg-[#01435E] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#015273] text-sm"
+//             variants={buttonVariants}
+//             whileHover="hover"
+//             whileTap="tap"
+//             onClick={() => navigate('/experts')}
+//             aria-label="View more expert counsellors"
+//           >
+//             Show More
+//           </motion.button>
+//         </div>
+//       )}
+//     </section>
+//   );
+// };
+
+// export default CounsellorList;
+
+
+
+
+
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import ConsultantCard from './ConsultantCard';
-import { Consultant } from '../types/types'; // Import the unified Consultant interface
+import { Consultant } from '../types/types';
 import AuthService from '../services/AuthService';
+import { Link } from 'react-router-dom';
 
-const containerVariants = {
+// Animation variants
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
 };
 
-const buttonVariants = {
+const cardVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.95 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+const buttonVariants: Variants = {
   hover: {
     scale: 1.05,
-    boxShadow: '0 5px 15px rgba(0,0,0,0.2)',
+    boxShadow: '0 5px 15px rgba(0, 0, 0, 0.2)',
     transition: { duration: 0.3 },
   },
   tap: { scale: 0.95 },
 };
+
+// Skeleton loader component for better UX
+const SkeletonCard: React.FC = () => (
+  <div className="flex-shrink-0 w-80 md:w-1/3 snap-center">
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden h-96 animate-pulse">
+      <div className="h-48 bg-gray-200" />
+      <div className="p-6 space-y-4">
+        <div className="h-6 bg-gray-200 rounded w-3/4" />
+        <div className="h-4 bg-gray-200 rounded w-full" />
+        <div className="h-4 bg-gray-200 rounded w-5/6" />
+        <div className="h-10 bg-gray-200 rounded-full w-32" />
+      </div>
+    </div>
+  </div>
+);
 
 const CounsellorList: React.FC = () => {
   const [consultants, setConsultants] = useState<Consultant[]>([]);
@@ -445,14 +288,11 @@ const CounsellorList: React.FC = () => {
     const fetchCounsellors = async () => {
       try {
         setLoading(true);
-        console.log('Fetching counsellors...');
         const counsellors = await AuthService.getCounsellors();
-        console.log('API Response:', counsellors);
-        setConsultants(counsellors); // Set directly as it matches Consultant type
-        console.log('Final Consultants State:', counsellors);
-      } catch (err: any) {
-        console.error('Error fetching counsellors:', err);
-        setError(err.message || 'Failed to fetch counsellors');
+        setConsultants(counsellors);
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to fetch counsellors';
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
@@ -462,49 +302,120 @@ const CounsellorList: React.FC = () => {
   }, []);
 
   if (loading) {
-    return <div className="text-center py-10">Loading...</div>;
+    return (
+      <section className="py-20 bg-gray-100" aria-labelledby="counsellors-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            id="counsellors-heading"
+            className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#015F4A]"
+          >
+            Our Expert Counsellors
+          </h2>
+          <div className="flex flex-row overflow-x-auto md:overflow-x-visible gap-6 snap-x snap-mandatory pb-4">
+            {[...Array(3)].map((_, index) => (
+              <SkeletonCard key={index} />
+            ))}
+          </div>
+        </div>
+      </section>
+    );
   }
 
   if (error) {
-    return <div className="text-center py-10 text-red-500">{error}</div>;
+    return (
+      <section className="py-20 bg-gray-100" aria-labelledby="error-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 id="error-heading" className="text-2xl font-semibold text-red-500 mb-4">
+            Something Went Wrong
+          </h2>
+          <p className="text-gray-600 mb-6">{error}</p>
+          <button
+            className="px-6 py-2 rounded-full bg-[#31A382] text-white font-medium hover:bg-[#2F9B7A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#31A382] focus:ring-offset-2"
+            onClick={() => window.location.reload()}
+            aria-label="Retry loading counsellors"
+          >
+            Try Again
+          </button>
+        </div>
+      </section>
+    );
   }
 
   if (consultants.length === 0) {
-    return <div className="text-center py-10">No counsellors available.</div>;
+    return (
+      <section className="py-20 bg-gray-100" aria-labelledby="empty-heading">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 id="empty-heading" className="text-2xl font-semibold text-gray-600 mb-4">
+            No Counsellors Available
+          </h2>
+          <p className="text-gray-500 mb-6">Check back later for our expert counsellors.</p>
+          <Link
+            to="/services"
+            className="inline-block px-6 py-2 rounded-full bg-[#31A382] text-white font-medium hover:bg-[#2F9B7A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#31A382] focus:ring-offset-2"
+            aria-label="Explore our services"
+          >
+            Explore Services
+          </Link>
+        </div>
+      </section>
+    );
   }
 
+  const filteredConsultants = consultants.filter((c) => !c.isBlocked).slice(0, 3);
+
   return (
-    <div className="container mx-auto py-10 px-4">
-      <h2 className="text-3xl font-bold text-center mb-8" style={{ color: '#015F4A' }}>
-        Our Expert Counsellors
-      </h2>
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {consultants
-          .filter((c) => !c.isBlocked)
-          .slice(0, 3)
-          .map((consultant, index) => (
-            <ConsultantCard key={consultant.id} consultant={consultant} index={index} /> // Use `id` instead of `_id`
-          ))}
-      </motion.div>
-      {consultants.length > 3 && (
-        <div className="text-center mt-8">
-          <motion.button
-            className="px-8 py-3 rounded-full font-semibold bg-[#31A382] text-white hover:bg-[#2F9B7A] transition-colors duration-300"
-            variants={buttonVariants}
-            whileHover="hover"
-            whileTap="tap"
-            onClick={() => navigate('/experts')}
+    <motion.section
+      className="py-20 bg-gray-100"
+      variants={sectionVariants}
+      initial="hidden"
+      animate="visible"
+      aria-labelledby="counsellors-heading"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2
+          id="counsellors-heading"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-[#015F4A]"
+        >
+          Our Expert Counsellors
+        </h2>
+        <div className="relative">
+          <motion.div
+            className="flex flex-row overflow-x-auto md:overflow-x-visible gap-6 snap-x snap-mandatory pb-4"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            Show More
-          </motion.button>
+            {filteredConsultants.map((consultant, index) => (
+              <motion.div
+                key={consultant.id}
+                className="flex-shrink-0 w-80 md:w-1/3 snap-center"
+                variants={cardVariants}
+                transition={{ delay: index * 0.2 }}
+              >
+                <ConsultantCard consultant={consultant} index={index} />
+              </motion.div>
+            ))}
+          </motion.div>
+          {/* Scroll indicators for mobile */}
+          <div className="absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-gray-100 to-transparent pointer-events-none md:hidden" />
+          <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-gray-100 to-transparent pointer-events-none md:hidden" />
         </div>
-      )}
-    </div>
+        {consultants.length > 3 && (
+          <div className="text-center mt-12">
+            <motion.button
+              className="px-8 py-3 rounded-full font-semibold bg-[#31A382] text-white hover:bg-[#2F9B7A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#31A382] focus:ring-offset-2"
+              variants={buttonVariants}
+              whileHover="hover"
+              whileTap="tap"
+              onClick={() => navigate('/experts')}
+              aria-label="View more expert counsellors"
+            >
+              Show More
+            </motion.button>
+          </div>
+        )}
+      </div>
+    </motion.section>
   );
 };
 

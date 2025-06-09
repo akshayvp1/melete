@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import LoginRegister from '../components/LoginRegister';
+import LoginRegister from '../components/AdminLogin';
 
 const LoginPage: React.FC = () => {
   return (

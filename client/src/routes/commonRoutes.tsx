@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-rou
 import HomePage from '../pages/HomePage';
 import BlogPage from '../pages/BlogPage';
 import ContactPage from '../pages/ContactPage';
-import LoginPage from '../pages/LoginPage';
+// import LoginPage from '../pages/LoginPage';
 import AboutPage from '../pages/aboutPage';
 import ServicePage from '../pages/servicePage';
 import ExpertPafe from '../pages/expertPage'
@@ -15,7 +15,7 @@ function commonRoutes() {
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/admin/signin" element={<LoginPage />} />
+        
         {/* Add routes for dropdown items */}
         <Route path="/service" element={<ServicePage />} />
         <Route path="/experts" element={<ExpertPafe />} />

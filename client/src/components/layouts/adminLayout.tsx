@@ -323,7 +323,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Users, UserPlus, HelpCircle, LogOut, ChevronsLeft, ChevronsRight } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import companyLogo from '../../assets/logoWhite.png'
-
+import AuthService from '../../services/AuthService';
 // Utility for className merging (replacement for cn)
 const cn = (...classes: (string | undefined | null | false)[]): string => {
   return classes.filter(Boolean).join(' ');
@@ -340,12 +340,7 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-// Mock adminAuthService
-const adminAuthService = {
-  logout: async () => {
-    return new Promise((resolve) => setTimeout(resolve, 1000));
-  },
-};
+
 
 // Mock Redux store
 const store = {
@@ -388,7 +383,8 @@ const AdminDashboardLayout: React.FC<AdminDashboardLayoutProps> = ({ children })
   const handleLogout = async () => {
     setIsLoggingOut(true);
     try {
-      await adminAuthService.logout();
+      await AuthService.logout();
+      localStorage.clear(); 
       navigate('/admin/signin');
       toast.success('Successfully logged out!', { duration: 3000, position: 'top-right' });
     } catch (error) {

@@ -1,12 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config(); 
 import "reflect-metadata";
 import express from 'express';
 import cors from 'cors';
-import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
-import './config/container'
+import './config/container';
 import fullRouter from './routes/router';
-dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4040;
@@ -17,14 +17,23 @@ if (!MONGO_URI) {
   process.exit(1);
 }
 
+// mongoose
+//   .connect(MONGO_URI)
+//   .then(() => console.log("MongoDB Connected"))
+//   .catch((err) => console.error("MongoDB Connection Error:", err));
+
+// mongoose.connection.on("error", (err) => {
+//   console.error("MongoDB connection lost:", err);
+// });
+
 mongoose
   .connect(MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
+  .then(() => {
+    console.log("✅ MongoDB Connected");
+    console.log("🔍 Connected to:", MONGO_URI); // Add this
+  })
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
-mongoose.connection.on("error", (err) => {
-  console.error("MongoDB connection lost:", err);
-});
 
 app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
 app.use(morgan('dev'));

@@ -1,7 +1,14 @@
+
+
+
+
+
+// // src/services/AuthService.ts
 // import { api } from '../utils/axiosInterceptor';
 // import { store } from '../redux/app/store';
 // import { signIn } from '../redux/features/authSlice';
 // import { UserRole } from '../types/auth/auth.types';
+// import { Consultant } from '../types/types'; // Import the unified Consultant interface
 
 // interface ICounsellorData {
 //   name: string;
@@ -18,41 +25,13 @@
 //   specialization: string;
 // }
 
-// interface Consultant {
-//   id: string;
-//   name: string;
-//   qualification: string;
-//   expertise: string[];
-//   languages: string[];
-//   counsellingTypes: string[];
-//   experience: string;
-//   location: string;
-//   image: string;
-//   bio: string;
-//   email: string;
-//   phone: string;
-//   specialization: string;
-//   rating: number;
-//   sessions: number;
-//   isBlocked: boolean;
-// }
-
 // interface LoginResponse {
 //   email: string;
 //   role: UserRole;
 //   token: string;
 // }
 
-// interface IAuthService {
-//   login(email: string, password: string): Promise<LoginResponse>;
-//   addCounsellor(counsellorData: ICounsellorData): Promise<void>;
-//   getCounsellors(): Promise<Consultant[]>;
-//   blockCounsellor(id: string): Promise<Consultant>;
-//   unblockCounsellor(id: string): Promise<Consultant>;
-//   updateCounsellor(id: string, counsellorData: Consultant): Promise<void>;
-// }
-
-// class AuthService implements IAuthService {
+// class AuthService {
 //   async login(email: string, password: string): Promise<LoginResponse> {
 //     try {
 //       const response = await api['admin'].post('/verify-login', { email, password });
@@ -104,15 +83,15 @@
 //         throw new Error('Invalid response format: Expected an array of counsellors');
 //       }
 //       return response.data.map((item: any) => ({
-//         id: item._id || item.id,
+//         id: item._id || item.id || '', // Map `_id` to `id`
 //         name: item.name || '',
 //         qualification: item.qualification || '',
 //         expertise: item.expertise || [],
 //         languages: item.languages || [],
-//         counsellingTypes: item.counsellingTypes || [],
+//         counsellingTypes: item.counsellingTypes || item.counseling || [], // Support both field names
 //         experience: item.experience || '',
 //         location: item.location || '',
-//         image: item.imageUrl || 'https://via.placeholder.com/150',
+//         image: item.imageUrl || item.image || 'https://via.placeholder.com/150', // Map `imageUrl` to `image`
 //         bio: item.bio || '',
 //         email: item.email || '',
 //         phone: item.phone || '',
@@ -120,6 +99,8 @@
 //         rating: item.rating || 0,
 //         sessions: item.sessions || 0,
 //         isBlocked: item.isBlocked || false,
+//         isVerified: item.isVerified || false, // Include optional field
+//         createdAt: item.createdAt || '', // Include optional field
 //       }));
 //     } catch (error: any) {
 //       console.error('Get counsellors error:', error);
@@ -131,17 +112,17 @@
 //     try {
 //       const response = await api['admin'].patch(`/block-counsellor/${userId}`);
 //       const data = response.data.data;
-//       console.log('Block counsellor response:', { userId, isBlocked: data.isBlocked }); // Added logging
+//       console.log('Block counsellor response:', { userId, isBlocked: data.isBlocked });
 //       return {
-//         id: data._id || data.id,
+//         id: data._id || data.id || '',
 //         name: data.name || '',
 //         qualification: data.qualification || '',
 //         expertise: data.expertise || [],
 //         languages: data.languages || [],
-//         counsellingTypes: data.counsellingTypes || [],
+//         counsellingTypes: data.counsellingTypes || data.counseling || [],
 //         experience: data.experience || '',
 //         location: data.location || '',
-//         image: data.imageUrl || 'https://via.placeholder.com/150',
+//         image: data.imageUrl || data.image || 'https://via.placeholder.com/150',
 //         bio: data.bio || '',
 //         email: data.email || '',
 //         phone: data.phone || '',
@@ -149,6 +130,8 @@
 //         rating: data.rating || 0,
 //         sessions: data.sessions || 0,
 //         isBlocked: data.isBlocked || false,
+//         isVerified: data.isVerified || false,
+//         createdAt: data.createdAt || '',
 //       };
 //     } catch (error: any) {
 //       console.error('Block counsellor error:', error);
@@ -160,17 +143,17 @@
 //     try {
 //       const response = await api['admin'].patch(`/unblock-counsellor/${userId}`);
 //       const data = response.data.data;
-//       console.log('Unblock counsellor response:', { userId, isBlocked: data.isBlocked }); // Added logging
+//       console.log('Unblock counsellor response:', { userId, isBlocked: data.isBlocked });
 //       return {
-//         id: data._id || data.id,
+//         id: data._id || data.id || '',
 //         name: data.name || '',
 //         qualification: data.qualification || '',
 //         expertise: data.expertise || [],
 //         languages: data.languages || [],
-//         counsellingTypes: data.counsellingTypes || [],
+//         counsellingTypes: data.counsellingTypes || data.counseling || [],
 //         experience: data.experience || '',
 //         location: data.location || '',
-//         image: data.imageUrl || 'https://via.placeholder.com/150',
+//         image: data.imageUrl || data.image || 'https://via.placeholder.com/150',
 //         bio: data.bio || '',
 //         email: data.email || '',
 //         phone: data.phone || '',
@@ -178,6 +161,8 @@
 //         rating: data.rating || 0,
 //         sessions: data.sessions || 0,
 //         isBlocked: data.isBlocked || false,
+//         isVerified: data.isVerified || false,
+//         createdAt: data.createdAt || '',
 //       };
 //     } catch (error: any) {
 //       console.error('Unblock counsellor error:', error);
@@ -195,7 +180,7 @@
 //         counsellingTypes: counsellorData.counsellingTypes,
 //         experience: counsellorData.experience,
 //         location: counsellorData.location,
-//         imageUrl: counsellorData.image,
+//         imageUrl: counsellorData.image, // Map `image` to `imageUrl` for API
 //         bio: counsellorData.bio,
 //         email: counsellorData.email,
 //         phone: counsellorData.phone,
@@ -203,6 +188,8 @@
 //         rating: counsellorData.rating,
 //         sessions: counsellorData.sessions,
 //         isBlocked: counsellorData.isBlocked,
+//         isVerified: counsellorData.isVerified,
+//         createdAt: counsellorData.createdAt,
 //       };
 //       await api['admin'].put(`/update-counsellor/${id}`, payload);
 //     } catch (error: any) {
@@ -222,8 +209,8 @@ import { api } from '../utils/axiosInterceptor';
 import { store } from '../redux/app/store';
 import { signIn } from '../redux/features/authSlice';
 import { UserRole } from '../types/auth/auth.types';
-import { Consultant } from '../types/types'; // Import the unified Consultant interface
-
+import { Consultant } from '../types/types';
+import { signOut } from '../redux/features/authSlice';
 interface ICounsellorData {
   name: string;
   qualification: string;
@@ -243,6 +230,12 @@ interface LoginResponse {
   email: string;
   role: UserRole;
   token: string;
+}
+
+interface StatusResponse {
+  success: boolean;
+  message?: string;
+  user?: any;
 }
 
 class AuthService {
@@ -281,6 +274,28 @@ class AuthService {
     }
   }
 
+  // Add the missing checkStatus method
+  async checkStatus(): Promise<StatusResponse> {
+    try {
+      console.log("edaaaaa");
+      
+      const response = await api['admin'].get('/check-status');
+      console.log(response,"pppppppp");
+      
+      return {
+        success: true,
+        user: response.data.user,
+        message: response.data.message || 'Status check successful'
+      };
+    } catch (error: any) {
+      console.error('Status check error:', error);
+      return {
+        success: false,
+        message: error.response?.data?.message || 'Failed to check status'
+      };
+    }
+  }
+
   async addCounsellor(counsellorData: ICounsellorData): Promise<void> {
     try {
       await api['admin'].post('/add-counsellor', counsellorData);
@@ -297,15 +312,15 @@ class AuthService {
         throw new Error('Invalid response format: Expected an array of counsellors');
       }
       return response.data.map((item: any) => ({
-        id: item._id || item.id || '', // Map `_id` to `id`
+        id: item._id || item.id || '',
         name: item.name || '',
         qualification: item.qualification || '',
         expertise: item.expertise || [],
         languages: item.languages || [],
-        counsellingTypes: item.counsellingTypes || item.counseling || [], // Support both field names
+        counsellingTypes: item.counsellingTypes || item.counseling || [],
         experience: item.experience || '',
         location: item.location || '',
-        image: item.imageUrl || item.image || 'https://via.placeholder.com/150', // Map `imageUrl` to `image`
+        image: item.imageUrl || item.image || 'https://via.placeholder.com/150',
         bio: item.bio || '',
         email: item.email || '',
         phone: item.phone || '',
@@ -313,8 +328,8 @@ class AuthService {
         rating: item.rating || 0,
         sessions: item.sessions || 0,
         isBlocked: item.isBlocked || false,
-        isVerified: item.isVerified || false, // Include optional field
-        createdAt: item.createdAt || '', // Include optional field
+        isVerified: item.isVerified || false,
+        createdAt: item.createdAt || '',
       }));
     } catch (error: any) {
       console.error('Get counsellors error:', error);
@@ -324,6 +339,7 @@ class AuthService {
 
   async blockCounsellor(userId: string): Promise<Consultant> {
     try {
+      // Fixed template literal syntax
       const response = await api['admin'].patch(`/block-counsellor/${userId}`);
       const data = response.data.data;
       console.log('Block counsellor response:', { userId, isBlocked: data.isBlocked });
@@ -355,6 +371,7 @@ class AuthService {
 
   async unblockCounsellor(userId: string): Promise<Consultant> {
     try {
+      // Fixed template literal syntax
       const response = await api['admin'].patch(`/unblock-counsellor/${userId}`);
       const data = response.data.data;
       console.log('Unblock counsellor response:', { userId, isBlocked: data.isBlocked });
@@ -394,7 +411,7 @@ class AuthService {
         counsellingTypes: counsellorData.counsellingTypes,
         experience: counsellorData.experience,
         location: counsellorData.location,
-        imageUrl: counsellorData.image, // Map `image` to `imageUrl` for API
+        imageUrl: counsellorData.image,
         bio: counsellorData.bio,
         email: counsellorData.email,
         phone: counsellorData.phone,
@@ -405,10 +422,21 @@ class AuthService {
         isVerified: counsellorData.isVerified,
         createdAt: counsellorData.createdAt,
       };
+      // Fixed template literal syntax
       await api['admin'].put(`/update-counsellor/${id}`, payload);
     } catch (error: any) {
       console.error('Update counsellor error:', error);
       throw new Error(error.response?.data?.message || 'Failed to update counsellor');
+    }
+  }
+
+  async logout():Promise<void>{
+    try{
+    await api['admin'].post('/admin-logout')
+    store.dispatch(signOut()); 
+    }catch(error){
+      console.log("error");
+      
     }
   }
 }

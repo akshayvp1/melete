@@ -490,7 +490,6 @@
 
 
 
-
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import { User, Upload, X, Plus, MapPin, BookOpen, Globe, Award, Briefcase, Camera } from 'lucide-react';
 import { toast } from 'react-toastify';
@@ -559,11 +558,15 @@ const AddCounsellor: React.FC = () => {
 
   // Predefined options
   const expertiseOptions: string[] = [
-    'Anxiety & Depression', 'Relationship Counselling', 'Career Guidance',
-    'Family Therapy', 'Addiction Recovery', 'Trauma Therapy',
-    'Child Psychology', 'Couples Therapy', 'Grief Counselling',
-    'Stress Management', 'PTSD', 'Eating Disorders'
-  ];
+  'Anxiety', 'Relationship Issues', 'Career Guidance', 'Depression',
+  'Family Therapy', 'Addiction Recovery', 'Trauma', 'Child Counselling',
+  'Couples Therapy', 'Grief Counselling', 'Stress Management',
+  'PTSD', 'Eating Disorders', 'Exam-Related Issues','Behavioural issues','Academic backwardness ',
+  'psycho Education','Adolescents','General Psychiatry','Developmental Disorders',
+  'Addiction & Substance Use Disorders','Sleep-Related Concerns','Identity Confusion & Emotional Difficulties',
+  'Online Counselling','Screen Addiction',"Anger Issues",'Porn Addiction','Phobias','Obsessive Compulsive Tendencies',
+  'Personality Disorders','Relaxation Technique','Psychological Assessments'
+];;
 
   const languageOptions: string[] = [
     'English', 'Malayalam', 'Tamil',
@@ -571,7 +574,7 @@ const AddCounsellor: React.FC = () => {
   ];
 
   const counsellingTypeOptions: string[] = [
-    'Individual Therapy', 'Group Therapy', 'Family Counselling',
+    'Individual', 'Group', 'Family Counselling',
     'Couples Counselling', 'Online Therapy', 'Phone Counselling',
     'Walk-in Sessions', 'Emergency Support'
   ];
@@ -648,15 +651,19 @@ const AddCounsellor: React.FC = () => {
       newErrors.name = 'Name must be 100 characters or less.';
     }
 
-    // Email
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required.';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+    // Email - not required, but validate format if provided
+    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = 'Invalid email format.';
     }
 
-    // Phone
-    if (formData.phone && !/^[6-9]\d{9}$/.test(formData.phone)) {
+    // Phone - required if email is provided
+    if (formData.email.trim()) {
+      if (!formData.phone.trim()) {
+        newErrors.phone = 'Phone number is required when email is provided.';
+      } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+        newErrors.phone = 'Phone number must be 10 digits, start with 6, 7, 8, or 9, and contain only numbers.';
+      }
+    } else if (formData.phone && !/^[6-9]\d{9}$/.test(formData.phone)) {
       newErrors.phone = 'Phone number must be 10 digits, start with 6, 7, 8, or 9, and contain only numbers.';
     }
 
@@ -954,7 +961,7 @@ useEffect(() => {
             
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Email Address *
+                Email Address
               </label>
               <input
                 type="email"
@@ -973,7 +980,7 @@ useEffect(() => {
             
             <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Phone Number
+                Phone Number {formData.email.trim() && '*'}
               </label>
               <input
                 type="tel"
@@ -987,6 +994,11 @@ useEffect(() => {
               />
               {errors.phone && (
                 <p className="text-red-700 text-sm mt-2">{errors.phone}</p>
+              )}
+              {formData.email.trim() && (
+                <p className="text-sm text-gray-500 mt-1">
+                  Phone number is required when email is provided
+                </p>
               )}
             </div>
             
@@ -1066,7 +1078,7 @@ useEffect(() => {
             </div>
           </div>
           
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <label className="block text-sm font-semibold text-gray-700 mb-2">
               Specialization
             </label>
@@ -1083,7 +1095,7 @@ useEffect(() => {
             {errors.specialization && (
               <p className="text-red-700 text-sm mt-2">{errors.specialization}</p>
             )}
-          </div>
+          </div> */}
           
           <div>
             <label className="block text-sm font-semibold text-gray-700 mb-2">

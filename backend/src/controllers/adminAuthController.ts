@@ -79,7 +79,7 @@ class AdminAuthController implements IAdminAuthController {
       // Validate required fields
       if (
         !counsellorData.name ||
-        !counsellorData.email ||
+        // !counsellorData.email ||
         !counsellorData.location ||
         !counsellorData.qualification ||
         !counsellorData.experience
@@ -168,7 +168,7 @@ class AdminAuthController implements IAdminAuthController {
       // Validate required fields
       if (
         !counsellorData.name ||
-        !counsellorData.email ||
+        // !counsellorData.email ||
         !counsellorData.location ||
         !counsellorData.qualification ||
         !counsellorData.experience

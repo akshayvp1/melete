@@ -81,7 +81,7 @@ export interface ITokenPayload {
 }
 
 export const generateTokens = (payload: ITokenPayload) => {
-  const accessToken = jwt.sign(payload, JWT_ACCESS_SECRET, { expiresIn: '1h' });
+  const accessToken = jwt.sign(payload, JWT_ACCESS_SECRET, { expiresIn: '2h' });
   const refreshToken = jwt.sign(payload, JWT_REFRESH_SECRET, { expiresIn: '7d' });
   return { accessToken, refreshToken };
 };

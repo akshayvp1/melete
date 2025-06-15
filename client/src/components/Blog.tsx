@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import WorkImage from '../assets/Worklife-balance.jpg';
-import SocialImage from '../assets/Social-connection.jpg';
-import DigitalImage from '../assets/Digital-overloaded.jpg';
+import WorkImage from '../assets/Worklife-balance.webp';
+import SocialImage from '../assets/Social-connection.webp';
+import DigitalImage from '../assets/Digital-overloaded.webp';
 
 // Sample blog post data (replace with API fetch in production)
 interface BlogPost {

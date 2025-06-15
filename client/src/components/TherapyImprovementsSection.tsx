@@ -566,20 +566,20 @@ import {
   Heart,
   HeartHandshake,
 } from 'lucide-react';
-import SelfImage from '../assets/Self-Confidence.jpg';
-import StressImage from '../assets/stress.jpg';
-import AnxietyImage from '../assets/Anxiety.jpg';
-import DepressionImage from '../assets/Depression.jpg';
-import SleepImage from '../assets/Sleep-hygine.jpg';
-import UnhealthyImage from '../assets/Unhealthy-diet.jpg';
-import LackImage from '../assets/Lack-of-Physical-activity.jpg';
-import Substance from '../assets/Substance-abuse.jpg';
-import WorkImage from '../assets/Worklife-balance.jpg';
-import SocialImage from '../assets/Social-connection.jpg';
-import DigitalImage from '../assets/Digital-overloaded.jpg';
-import GoalImage from '../assets/Goal-direction.jpg';
-import EmotionalImage from '../assets/Emotional-need.jpg';
-import RelationshipImage from '../assets/Relationship.jpg';
+import SelfImage from '../assets/Self-Confidence.webp';
+import StressImage from '../assets/stress.webp';
+import AnxietyImage from '../assets/Anxiety.webp';
+import DepressionImage from '../assets/Depression.webp';
+import SleepImage from '../assets/Sleep-hygine.webp';
+import UnhealthyImage from '../assets/Unhealthy-diet.webp';
+import LackImage from '../assets/Lack-of-Physical-activity.webp';
+import Substance from '../assets/Substance-abuse.webp';
+import WorkImage from '../assets/Worklife-balance.webp';
+import SocialImage from '../assets/Social-connection.webp';
+import DigitalImage from '../assets/Digital-overloaded.webp';
+import GoalImage from '../assets/Goal-direction.webp';
+import EmotionalImage from '../assets/Emotional-need.webp';
+import RelationshipImage from '../assets/Relationship.webp';
 import { TherapyImprovement } from '../types/types';
 
 // Animation variants

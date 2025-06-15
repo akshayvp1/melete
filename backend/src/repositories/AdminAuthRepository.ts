@@ -52,9 +52,11 @@ class AdminAuthRepository implements IAdminAuthRepository {
 
     async addCounsellor(currentId: string, counsellorData: ICounsellorData): Promise<ICounsellor> {
         try {
+          console.log("❤️❤️❤️❤️❤️❤️");
+          
             // Verify admin exists
-            const admin = await this.adminModel.findById(currentId);
-            if (!admin) {
+            const admin = await this.counsellorModel.findById(currentId);
+            if (admin) {
                 throw new Error("Admin not found");
             }
 

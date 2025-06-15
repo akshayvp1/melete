@@ -13,9 +13,9 @@ const counsellorSchema = new Schema<ICounsellor>({
   location: { type: String, required: true, trim: true },
   imageUrl: { type: String },
   bio: { type: String, trim: true },
-  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  email: { type: String, required: false, unique: true, lowercase: true, trim: true },
   phone: { type: String, required: true, trim: true },
-  specialization: { type: String, required: true, trim: true },
+  specialization: { type: String, required: false, trim: true },
   isVerified: { type: Boolean, default: true },
   isBlocked: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now }

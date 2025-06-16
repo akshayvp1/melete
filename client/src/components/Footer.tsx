@@ -111,13 +111,13 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex justify-center space-x-6">
           <a
-            href="#privacy"
+            href="/privacy"
             className="text-gray-600 hover:text-[#015F4A] transition-colors duration-300"
           >
             Privacy Policy
           </a>
           <a
-            href="#terms"
+            href="/privacy"
             className="text-gray-600 hover:text-[#015F4A] transition-colors duration-300"
           >
             Terms of Service

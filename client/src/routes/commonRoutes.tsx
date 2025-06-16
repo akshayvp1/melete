@@ -9,6 +9,7 @@ import AboutPage from '../pages/aboutPage';
 import ServicePage from '../pages/servicePage';
 import ExpertPafe from '../pages/expertPage'
 import ImprovePage from '../pages/improvePage';
+import PrivacyPolicyPage from '../pages/termsPage';
 function commonRoutes() {
   return (
     <Routes>
@@ -21,6 +22,8 @@ function commonRoutes() {
         <Route path="/experts" element={<ExpertPafe />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/improve" element={<ImprovePage/>}/>
+        <Route path="/privacy" element={<PrivacyPolicyPage/>}/>
+
     </Routes>
   )
 }

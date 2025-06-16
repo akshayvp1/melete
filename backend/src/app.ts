@@ -36,7 +36,7 @@ mongoose
 
 
 app.use(cors({
-  origin: 'https://meletewellness.com', // your Vercel frontend domain
+  origin: '*', // your Vercel frontend domain
   credentials: true
 }));app.use(morgan('dev'));
 app.use(express.json());

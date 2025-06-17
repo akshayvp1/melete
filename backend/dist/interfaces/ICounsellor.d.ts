@@ -1,0 +1,18 @@
+import { Document } from 'mongoose';
+export interface ICounsellor extends Document {
+    name: string;
+    qualification: string;
+    expertise: string[];
+    languages: string[];
+    counsellingTypes: string[];
+    experience: string;
+    location: string;
+    imageUrl?: string;
+    bio?: string;
+    email: string;
+    phone: string;
+    specialization: string;
+    isVerified: boolean;
+    isBlocked: boolean;
+    createdAt: Date;
+}

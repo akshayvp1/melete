@@ -288,8 +288,8 @@ const CounsellorList: React.FC = () => {
     const fetchCounsellors = async () => {
       try {
         setLoading(true);
-        // const counsellors = await AuthService.getCounsellors();
-        // setConsultants(counsellors);
+        const counsellors = await AuthService.getCounsellors();
+        setConsultants(counsellors);
       } catch (err: unknown) {
         const errorMessage = err instanceof Error ? err.message : 'Failed to fetch counsellors';
         setError(errorMessage);

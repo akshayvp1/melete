@@ -33,7 +33,7 @@ const adminAuthController = container.resolve(AdminAuthController);
 
 admin.get("/check-status", adminAuthenticate, checkUserStatus, adminAuthController.checkStatus);
 admin.post("/verify-login", adminAuthController.signIn);
-admin.post("/add-counsellor", adminAuthenticate, adminAuthController.addCounsellor);
+admin.post("/add-counsellor", adminAuthController.addCounsellor);
 admin.get("/get-counsellors", adminAuthController.getCounsellors);
 admin.patch("/block-counsellor/:userId", adminAuthenticate, adminAuthController.blockCounsellors);
 admin.patch("/unblock-counsellor/:userId", adminAuthenticate, adminAuthController.unBlockCounsellors);

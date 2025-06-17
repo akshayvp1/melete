@@ -35,20 +35,11 @@ mongoose
   .catch((err) => console.error("MongoDB Connection Error:", err));
 
 
-app.use(cors({
-  origin: 'https://meletewellness.com', // your Vercel frontend domain
-  credentials: true
-}));app.use(morgan('dev'));
+app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173', credentials: true }));
+app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/api',fullRouter)
-app.get('/', (req, res) => {
-  res.send("Backend is running");
-});
-
-app.get('/api/test', (req, res) => {
-  res.json({ message: "Test API working" });
-});
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
